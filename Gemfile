@@ -45,6 +45,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
+gem 'devise'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
