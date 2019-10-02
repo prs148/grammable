@@ -1,6 +1,14 @@
 class GramsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
 
+
+  def destroy
+    @gram = Gram.find_by_id(params[:id])
+    return render_not_found if @gram.blank? 
+    @gram.destroy
+    redirect_to root_path
+  end
+
   def update
   
     @gram = Gram.find_by_id(params[:id])
@@ -16,6 +24,15 @@ class GramsController < ApplicationController
 
   end
 
+  def show 
+    @gram = Gram.find_by_id(params[:id])
+      return render_not_found if @gram.blank? 
+  end
+
+  def edit
+    @gram = Gram.find_by_id(params[:id])
+    return render_not_found if @gram.blank? 
+  end
 
   def index 
   end
@@ -30,17 +47,11 @@ class GramsController < ApplicationController
       redirect_to root_path
     else 
       render :new, status: :unprocessable_entity
-    end  
+  end  
 
-  def show 
-    @gram = Gram.find_by_id(params[:id])
-      return render_not_found if @gram.blank? 
-  end
+  
 
-  def edit
-    @gram = Gram.find_by_id(params[:id])
-    return render_not_found if @gram.blank? 
-  end
+
 
 end
 
