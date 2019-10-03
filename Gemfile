@@ -46,6 +46,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'devise'
+gem 'carrierwave', '~>2.0'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
